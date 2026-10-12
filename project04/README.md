@@ -1,4 +1,4 @@
-# Personal Portfolio — 42 Amman
+# Personal Portfolio — Doaa Estity
 
 ## Overview
 An authentic, responsive personal portfolio website crafted from scratch without frameworks, templates, or UI libraries for 42 School. Built to reflect professional software engineering standards, advanced UI/UX design, and clean code architecture.
