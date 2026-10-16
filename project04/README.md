@@ -1,26 +1,55 @@
-# Personal Portfolio — 42 Amman
+# Exercise 00: Personal Portfolio
 
-## Overview
-An authentic, responsive personal portfolio website crafted from scratch without frameworks, templates, or UI libraries for 42 School. Built to reflect professional software engineering standards, advanced UI/UX design, and clean code architecture.
+A personal portfolio for **Doaa Estity**, built by hand with HTML5, CSS3 and
+JavaScript ES6+. No frameworks, templates or UI libraries.
 
-## File Structure
-- `index.html`: Main semantic document structure
-- `style.css`: Custom responsive styling, luxury theme variables, and layouts
-- `script.js`: Dynamic theme switcher & complete Event Lifecycle implementation
-- `assets/`: Media, photo assets, and resources
-- `README.md`: Project documentation
+## Files
 
-## Features
-- **Sophisticated Aesthetic Design:** Custom color palette featuring deep burgundy, rich rose pink, soft beige, and crisp white with refined shadow depth and custom shaped profile frame.
-- **Mandatory JavaScript Feature:** Dynamic theme switcher (Dark/Light Mode) with persistent state via `localStorage`.
-- **Event Lifecycle Architecture:** Fully documented event-driven model tracking user actions, event firing, callback execution, and DOM/CSS mutation.
-- **Responsive Layout:** Built with native CSS Flexbox and Grid, paired with media queries for seamless mobile-to-desktop adaptation.
+| File | Purpose |
+|------|---------|
+| `index.html` | Page structure: navbar, About Me, Skills, Projects 00-03, Contact form, footer |
+| `style.css` | Theme variables, Flexbox layouts, media queries |
+| `script.js` | Theme switcher, mobile menu, form validation |
+| `assets/` | Images (`photo.jpg`) |
+| `README.md` | This file |
 
-## Authorized Technologies
-- HTML5 (Semantic markup)
-- CSS3 (Variables, Grid, Flexbox, Transitions)
-- JavaScript (ES6+)
-- Git & GitHub (Version control)
+## How to run
+
+Open `index.html` in a browser. No build step is needed.
+
+## Mandatory feature: theme switcher
+
+The **Theme** button in the navbar switches between a light theme (soft pink with deep rose
+accents) and a dark theme (deep aubergine with violet accents). The choice is saved in `localStorage`, so it is kept after a reload.
+
+### How it works: the event lifecycle
+
+1. **User action.** The visitor clicks the Theme button.
+2. **Event firing.** The browser creates a `click` event and fires it on the
+   button element (`#theme-toggle`). The event travels from the button up
+   through its parents (event bubbling).
+3. **JavaScript callback.** `script.js` registered a listener earlier with
+   `themeButton.addEventListener("click", changeTheme)`. The browser calls
+   `changeTheme()`, which finds the next theme in the `THEMES` array.
+4. **DOM/CSS mutation.** `applyTheme()` calls
+   `root.setAttribute("data-theme", ...)` on the `<html>` element and updates
+   the button label. In `style.css` every colour is a CSS variable defined per
+   `[data-theme="..."]`, so changing the attribute makes the browser recalculate
+   styles and repaint the page. A `transition` on `body` makes the change smooth.
+
+## Responsive design
+
+- Flexbox is used for the navbar, About, Skills, Projects,
+  Contact and footer. Cards use `flex-wrap` and `flex: 1 1 <width>`.
+- `@media (max-width: 900px)`: About and Contact stack in one column (photo moves above the text).
+- `@media (max-width: 700px)`: the nav links collapse into a menu button.
+- `prefers-reduced-motion` is respected.
+
+## Sections
+
+Header/Navbar, About Me with photo, Skills grid, Project Showcase
+(Projects 00-03), Contact form (validated with JavaScript), Footer.
 
 ## Author
-**Doaa Estity**
+
+Doaa Estity - doaaestity@gmail.com
